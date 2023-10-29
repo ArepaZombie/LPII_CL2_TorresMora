@@ -1,12 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ProductoDao;
 import dao.UsuarioDao;
+import model.TblProductocl2;
 import model.TblUsuariocl2;
 
 /**
@@ -47,9 +51,17 @@ public class UsuarioControler extends HttpServlet {
 		
 		//validamos al usuario
 		String mensaje = crud.ValidarUsuario(usuario);
-		request.setAttribute("mensaje", mensaje);
 		
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		if (mensaje!="Usuario existe! :D"){
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);			
+		}else {
+			ProductoDao dao = new ProductoDao();
+			List<TblProductocl2> lista = dao.ListarProductos();
+			request.setAttribute("lista", lista);
+			
+			request.getRequestDispatcher("/listarProductos.jsp").forward(request, response);}
+		
 	}
 
 }

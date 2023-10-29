@@ -25,7 +25,7 @@ public class ProductoTest {
 		List<TblProductocl2> lista=dao.ListarProductos();
 		
 		for(TblProductocl2 p:lista){
-			System.out.print("- "+p.getNombrecl2());
+			System.out.println("- "+p.getNombrecl2());
 		}
 		
 	}

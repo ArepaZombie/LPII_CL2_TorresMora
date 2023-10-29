@@ -30,5 +30,8 @@ if(mensaje!=null){%>
 <h3 align="center"><%=mensaje %> </h3>
 <%} %>
 
+<h1 align="center"><a href="https://github.com/ArepaZombie/LPII_CL2_TorresMora" target="_blank">Repositorio de GitHub</a> </h1>
+<h1 align="center"><a href="https://youtu.be/ErtW0JuL71M" target="_blank">Video de YouTube</a> </h1>
+
 </body>
 </html>
